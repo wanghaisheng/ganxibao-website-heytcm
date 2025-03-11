@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="home.title">首页 - 干细胞疗法信息网</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .ios-status-bar {
+            height: 44px;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            color: white;
+            font-size: 14px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .ios-bottom-bar {
+            height: 83px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .news-scroll {
+            white-space: nowrap;
+            overflow: hidden;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- iOS Status Bar -->
+    <div class="ios-status-bar">
+        <div>9:41</div>
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="flex-1 overflow-y-auto">
+        <!-- App Header -->
+        <div class="bg-white shadow-md p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/40" alt="Logo" class="h-8 w-8 mr-2">
+                <span class="text-lg font-semibold text-blue-600" data-i18n="app.name">干细胞疗法信息网</span>
+            </div>
+            <div class="flex space-x-3">
+                <button class="p-2 rounded-full bg-gray-100">
+                    <i class="fas fa-search text-gray-600"></i>
+                </button>
+                <button class="p-2 rounded-full bg-gray-100">
+                    <i class="fas fa-bell text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- News Ticker -->
+        <div class="bg-blue-50 p-3 flex items-center">
+            <div class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2" data-i18n="home.news.label">最新</div>
+            <div class="overflow-hidden flex-1">
+                <div class="news-scroll text-sm text-gray-700" data-i18n="home.news.content">重大突破：美国FDA批准针对ALS的干细胞治疗进入III期临床试验 | 中国科学家在帕金森病干细胞治疗领域取得新进展 | 干细胞治疗心脏病研究显示长期疗效</div>
+            </div>
+        </div>
+
+        <!-- Hero Banner -->
+        <div class="relative h-48 bg-blue-600">
+            <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Hero Image" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 flex flex-col justify-center px-6">
+                <h1 class="text-white text-2xl font-bold mb-2" data-i18n="home.hero.title">探索干细胞疗法的新希望</h1>
+                <p class="text-white text-sm" data-i18n="home.hero.subtitle">专业、全面、客观的干细胞治疗资讯平台</p>
+                <button class="bg-white text-blue-600 px-4 py-2 rounded-lg mt-4 font-medium shadow-lg w-48" data-i18n="home.hero.cta">开始健康评估</button>
+            </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="grid grid-cols-4 gap-2 bg-white p-4">
+            <div class="text-center">
+                <div class="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-1">
+                    <i class="fas fa-heartbeat text-red-500"></i>
+                </div>
+                <p class="text-xs" data-i18n="home.quickaccess.diseases">疾病领域</p>
+            </div>
+            <div class="text-center">
+                <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-1">
+                    <i class="fas fa-user-md text-green-500"></i>
+                </div>
+                <p class="text-xs" data-i18n="home.quickaccess.experts">专家咨询</p>
+            </div>
+            <div class="text-center">
+                <div class="h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-1">
+                    <i class="fas fa-flask text-purple-500"></i>
+                </div>
+                <p class="text-xs" data-i18n="home.quickaccess.trials">临床试验</p>
+            </div>
+            <div class="text-center">
+                <div class="h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center mx-auto mb-1">
+                    <i class="fas fa-hospital text-yellow-500"></i>
+                </div>
+                <p class="text-xs" data-i18n="home.quickaccess.institutions">治疗机构</p>
+            </div>
+        </div>
+
+        <!-- Featured Content -->
+        <div class="p-4">
+            <h2 class="text-lg font-bold mb-4" data-i18n="home.featured.title">推荐内容</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="bg-white rounded-xl shadow-sm p-4 feature-card">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Featured Article" class="h-20 w-20 object-cover rounded-lg mr-4">
+                        <div>
+                            <h3 class="font-semibold mb-1" data-i18n="home.featured.article1.title">干细胞治疗帕金森病的最新进展</h3>
+                            <p class="text-sm text-gray-600 mb-2" data-i18n="home.featured.article1.description">探索干细胞如何修复受损的神经元，改善帕金森病运动症状...</p>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <span data-i18n="home.featured.article1.date">2023-06-15</span>
+                                <span class="mx-2">•</span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>1.2K</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-4 feature-card">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Featured Article" class="h-20 w-20 object-cover rounded-lg mr-4">
+                        <div>
+                            <h3 class="font-semibold mb-1" data-i18n="home.featured.article2.title">如何评估干细胞治疗机构的可靠性</h3>
+                            <p class="text-sm text-gray-600 mb-2" data-i18n="home.featured.article2.description">专家指导：选择安全可靠的干细胞治疗机构的六项标准...</p>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <span data-i18n="home.featured.article2.date">2023-06-10</span>
+                                <span class="mx-2">•</span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>956</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patient Stories -->
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold" data-i18n="home.stories.title">患者故事</h2>
+                <a href="#" class="text-blue-600 text-sm" data-i18n="home.stories.more">查看更多</a>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <div class="flex space-x-4 pb-2">
+                    <div class="flex-shrink-0 w-64 bg-white rounded-xl shadow-sm p-4">
+                        <div class="flex items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Patient" class="h-10 w-10 rounded-full mr-3">
+                            <div>
+                                <p class="font-medium" data-i18n="home.stories.patient1.name">张先生</p>
+                                <p class="text-xs text-gray-500" data-i18n="home.stories.patient1.condition">帕金森病患者</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3" data-i18n="home.stories.patient1.quote">"通过干细胞治疗后，我的震颤明显减轻，生活质量得到很大改善..."</p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span data-i18n="home.stories.patient1.hospital">北京协和医院</span>
+                            <span data-i18n="home.stories.patient1.date">2023年3月</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-64 bg-white rounded-xl shadow-sm p-4">
+                        <div class="flex items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Patient" class="h-10 w-10 rounded-full mr-3">
+                            <div>
+                                <p class="font-medium" data-i18n="home.stories.patient2.name">李女士</p>
+                                <p class="text-xs text-gray-500" data-i18n="home.stories.patient2.condition">糖尿病足患者</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3" data-i18n="home.stories.patient2.quote">"干细胞治疗帮助我避免了截肢，伤口愈合速度超出医生预期..."</p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span data-i18n="home.stories.patient2.hospital">上海瑞金医院</span>
+                            <span data-i18n="home.stories.patient2.date">2023年1月</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="p-4 mb-20">
+            <h2 class="text-lg font-bold mb-4" data-i18n="home.events.title">近期活动</h2>
+            <div class="bg-white rounded-xl shadow-sm p-4">
+                <div class="flex items-start mb-4">
+                    <div class="bg-blue-100 text-blue-800 rounded-lg p-2 mr-4 text-center min-w-[60px]">
+                        <div class="text-sm font-bold" data-i18n="home.events.event1.month">7月</div>
+                        <div class="text-xl font-bold">15</div>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-1" data-i18n="home.events.event1.title">干细胞与再生医学线上讲座</h3>
+                        <p class="text-sm text-gray-600" data-i18n="home.events.event1.description">由北京协和医院再生医学中心主任王教授主讲，探讨干细胞治疗在神经系统疾病中的应用</p>
+                        <button class="mt-2 text-sm bg-blue-600 text-white px-3 py-1 rounded" data-i18n="home.events.register">免费预约</button>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-blue-100 text-blue-800 rounded-lg p-2 mr-4 text-center min-w-[60px]">
+                        <div class="text-sm font-bold" data-i18n="home.events.event2.month">7月</div>
+                        <div class="text-xl font-bold">22</div>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-1" data-i18n="home.events.event2.title">患者交流会：干细胞治疗经验分享</h3>
+                        <p class="text-sm text-gray-600" data-i18n="home.events.event2.description">成功接受干细胞治疗的患者分享经验，专家在线解答疑问</p>
+                        <button class="mt-2 text-sm bg-blue-600 text-white px-3 py-1 rounded" data-i18n="home.events.register">免费预约</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOS Bottom Bar -->
+    <div class="ios-bottom-bar">
+        <div class="text-center">
+            <i class="fas fa-home text-blue-600 text-xl"></i>
+            <p class="text-xs mt-1 text-blue-600 font-medium" data-i18n="nav.home">首页</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-book-medical text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.knowledge">知识库</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user-md text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.experts">专家</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.profile">我的</p>
+        </div>
+    </div>
+
+    <script>
+        // 这里会加载多语言支持的脚本
+    </script>
+</body>
+</html>
+

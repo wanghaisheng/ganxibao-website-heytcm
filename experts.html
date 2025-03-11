@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="experts.title">专家团队 - 干细胞疗法信息网</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .ios-status-bar {
+            height: 44px;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            color: white;
+            font-size: 14px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .ios-bottom-bar {
+            height: 83px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .expert-card {
+            transition: all 0.3s ease;
+        }
+        .expert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- iOS Status Bar -->
+    <div class="ios-status-bar">
+        <div>9:41</div>
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="flex-1 overflow-y-auto">
+        <!-- App Header -->
+        <div class="bg-white shadow-md p-4 flex items-center">
+            <button class="mr-4">
+                <i class="fas fa-arrow-left text-gray-600"></i>
+            </button>
+            <h1 class="text-lg font-semibold text-center flex-1" data-i18n="experts.header">专家团队</h1>
+            <button>
+                <i class="fas fa-search text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="bg-white p-2 flex overflow-x-auto space-x-2 sticky top-0 z-10 shadow-sm">
+            <button class="px-4 py-2 bg-blue-600 text-white text-sm rounded-full whitespace-nowrap" data-i18n="experts.filter.all">全部专家</button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap" data-i18n="experts.filter.neurology">神经科</button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap" data-i18n="experts.filter.cardiology">心血管科</button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap" data-i18n="experts.filter.endocrinology">内分泌科</button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap" data-i18n="experts.filter.orthopedics">骨科</button>
+        </div>
+
+        <!-- Experts List -->
+        <div class="p-4 mb-20">
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Expert 1 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 expert-card">
+                    <div class="flex">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Expert" class="h-20 w-20 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-gray-800" data-i18n="experts.expert1.name">王伟 教授</h3>
+                                    <p class="text-sm text-gray-600" data-i18n="experts.expert1.title">神经科主任医师，博士生导师</p>
+                                    <p class="text-sm text-gray-500" data-i18n="experts.expert1.institution">北京协和医院</p>
+                                </div>
+                                <div class="bg-blue-100 text-blue-800 px-2 py-1 text-xs rounded-full" data-i18n="experts.expert1.specialty">帕金森专家</div>
+                            </div>
+                            <div class="flex flex-wrap mt-2">
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <span class="text-sm ml-1">4.9</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="experts.rating">(132评分)</span>
+                                </div>
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-user-md text-blue-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert1.experience">20年经验</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-flask text-green-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert1.cases">300+案例</span>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between">
+                                <button class="bg-white border border-blue-600 text-blue-600 px-3 py-1 rounded text-sm" data-i18n="experts.view-profile">查看详情</button>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="experts.consult">立即咨询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expert 2 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 expert-card">
+                    <div class="flex">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Expert" class="h-20 w-20 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-gray-800" data-i18n="experts.expert2.name">李红 教授</h3>
+                                    <p class="text-sm text-gray-600" data-i18n="experts.expert2.title">心血管科主任医师</p>
+                                    <p class="text-sm text-gray-500" data-i18n="experts.expert2.institution">上海瑞金医院</p>
+                                </div>
+                                <div class="bg-red-100 text-red-800 px-2 py-1 text-xs rounded-full" data-i18n="experts.expert2.specialty">心衰专家</div>
+                            </div>
+                            <div class="flex flex-wrap mt-2">
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <span class="text-sm ml-1">4.8</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="experts.rating">(104评分)</span>
+                                </div>
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-user-md text-blue-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert2.experience">15年经验</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-flask text-green-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert2.cases">250+案例</span>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between">
+                                <button class="bg-white border border-blue-600 text-blue-600 px-3 py-1 rounded text-sm" data-i18n="experts.view-profile">查看详情</button>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="experts.consult">立即咨询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expert 3 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 expert-card">
+                    <div class="flex">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Expert" class="h-20 w-20 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-gray-800" data-i18n="experts.expert3.name">赵明 教授</h3>
+                                    <p class="text-sm text-gray-600" data-i18n="experts.expert3.title">内分泌科主任医师</p>
+                                    <p class="text-sm text-gray-500" data-i18n="experts.expert3.institution">中国医学科学院</p>
+                                </div>
+                                <div class="bg-green-100 text-green-800 px-2 py-1 text-xs rounded-full" data-i18n="experts.expert3.specialty">糖尿病专家</div>
+                            </div>
+                            <div class="flex flex-wrap mt-2">
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <span class="text-sm ml-1">4.7</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="experts.rating">(87评分)</span>
+                                </div>
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-user-md text-blue-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert3.experience">18年经验</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-flask text-green-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert3.cases">200+案例</span>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between">
+                                <button class="bg-white border border-blue-600 text-blue-600 px-3 py-1 rounded text-sm" data-i18n="experts.view-profile">查看详情</button>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="experts.consult">立即咨询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expert 4 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 expert-card">
+                    <div class="flex">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Expert" class="h-20 w-20 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-bold text-gray-800" data-i18n="experts.expert4.name">刘芳 副教授</h3>
+                                    <p class="text-sm text-gray-600" data-i18n="experts.expert4.title">骨科副主任医师</p>
+                                    <p class="text-sm text-gray-500" data-i18n="experts.expert4.institution">北京大学第三医院</p>
+                                </div>
+                                <div class="bg-purple-100 text-purple-800 px-2 py-1 text-xs rounded-full" data-i18n="experts.expert4.specialty">关节专家</div>
+                            </div>
+                            <div class="flex flex-wrap mt-2">
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                                    <span class="text-sm ml-1">4.6</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="experts.rating">(72评分)</span>
+                                </div>
+                                <div class="flex items-center mr-4 mb-2">
+                                    <i class="fas fa-user-md text-blue-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert4.experience">12年经验</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-flask text-green-500 text-xs"></i>
+                                    <span class="text-sm ml-1" data-i18n="experts.expert4.cases">150+案例</span>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex justify-between">
+                                <button class="bg-white border border-blue-600 text-blue-600 px-3 py-1 rounded text-sm" data-i18n="experts.view-profile">查看详情</button>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="experts.consult">立即咨询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOS Bottom Bar -->
+    <div class="ios-bottom-bar">
+        <div class="text-center">
+            <i class="fas fa-home text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.home">首页</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-book-medical text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.knowledge">知识库</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user-md text-blue-600 text-xl"></i>
+            <p class="text-xs mt-1 text-blue-600 font-medium" data-i18n="nav.experts">专家</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.profile">我的</p>
+        </div>
+    </div>
+
+    <script>
+        // 这里会加载多语言支持的脚本
+    </script>
+</body>
+</html>
+

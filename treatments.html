@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="treatments.title">治疗领域 - 干细胞疗法信息网</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .ios-status-bar {
+            height: 44px;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            color: white;
+            font-size: 14px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .ios-bottom-bar {
+            height: 83px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .treatment-card {
+            transition: all 0.3s ease;
+        }
+        .treatment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .disease-icon {
+            height: 50px;
+            width: 50px;
+            background-color: #EFF6FF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #2563EB;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- iOS Status Bar -->
+    <div class="ios-status-bar">
+        <div>9:41</div>
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="flex-1 overflow-y-auto">
+        <!-- App Header -->
+        <div class="bg-white shadow-md p-4 flex items-center">
+            <button class="mr-4">
+                <i class="fas fa-arrow-left text-gray-600"></i>
+            </button>
+            <h1 class="text-lg font-semibold text-center flex-1" data-i18n="treatments.header">治疗领域</h1>
+            <button>
+                <i class="fas fa-filter text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="p-4 bg-white">
+            <div class="flex items-center bg-gray-100 rounded-lg px-3 py-2">
+                <i class="fas fa-search text-gray-400 mr-2"></i>
+                <input type="text" placeholder="搜索疾病或治疗方案" class="bg-transparent border-none flex-1 focus:outline-none" data-i18n="treatments.search-placeholder">
+            </div>
+        </div>
+
+        <!-- Disease Categories -->
+        <div class="p-4">
+            <h2 class="text-lg font-bold mb-4" data-i18n="treatments.categories-title">疾病分类</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Category 1 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 flex items-center treatment-card">
+                    <div class="disease-icon mr-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold" data-i18n="treatments.category1.name">神经系统疾病</h3>
+                        <p class="text-xs text-gray-500" data-i18n="treatments.category1.count">12种治疗方案</p>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 flex items-center treatment-card">
+                    <div class="disease-icon mr-4">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold" data-i18n="treatments.category2.name">心血管疾病</h3>
+                        <p class="text-xs text-gray-500" data-i18n="treatments.category2.count">8种治疗方案</p>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 flex items-center treatment-card">
+                    <div class="disease-icon mr-4">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold" data-i18n="treatments.category3.name">糖尿病及并发症</h3>
+                        <p class="text-xs text-gray-500" data-i18n="treatments.category3.count">6种治疗方案</p>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 flex items-center treatment-card">
+                    <div class="disease-icon mr-4">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold" data-i18n="treatments.category4.name">骨关节疾病</h3>
+                        <p class="text-xs text-gray-500" data-i18n="treatments.category4.count">7种治疗方案</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Treatments -->
+        <div class="p-4">
+            <h2 class="text-lg font-bold mb-4" data-i18n="treatments.popular-title">热门治疗方案</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Treatment 1 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 treatment-card">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1559757175-7cb037014a9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Treatment Image" class="h-24 w-24 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800" data-i18n="treatments.treatment1.name">帕金森病干细胞疗法</h3>
+                            <div class="flex items-center my-1">
+                                <div class="bg-blue-100 text-blue-800 px-2 py-0.5 text-xs rounded-full mr-2" data-i18n="treatments.treatment1.type">神经系统</div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                    <span class="text-sm">4.8</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="treatments.rating">(56评价)</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2" data-i18n="treatments.treatment1.description">使用间充质干细胞治疗帕金森病，有助于减轻运动症状，改善生活质量</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-blue-600 font-semibold">¥80,000 - ¥150,000</div>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="treatments.view-details">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 2 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 treatment-card">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Treatment Image" class="h-24 w-24 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800" data-i18n="treatments.treatment2.name">心衰干细胞修复疗法</h3>
+                            <div class="flex items-center my-1">
+                                <div class="bg-red-100 text-red-800 px-2 py-0.5 text-xs rounded-full mr-2" data-i18n="treatments.treatment2.type">心血管</div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                    <span class="text-sm">4.6</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="treatments.rating">(42评价)</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2" data-i18n="treatments.treatment2.description">使用心肌来源干细胞，促进心肌修复，改善心脏功能，提高生活质量</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-blue-600 font-semibold">¥100,000 - ¥180,000</div>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="treatments.view-details">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 3 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 treatment-card">
+                    <div class="flex">
+                        <img src="https://images.unsplash.com/photo-1576671414121-aa2d6c5ad191?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Treatment Image" class="h-24 w-24 object-cover rounded-lg mr-4">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-gray-800" data-i18n="treatments.treatment3.name">糖尿病足干细胞治疗</h3>
+                            <div class="flex items-center my-1">
+                                <div class="bg-green-100 text-green-800 px-2 py-0.5 text-xs rounded-full mr-2" data-i18n="treatments.treatment3.type">糖尿病</div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                    <span class="text-sm">4.7</span>
+                                    <span class="text-xs text-gray-500 ml-1" data-i18n="treatments.rating">(38评价)</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2" data-i18n="treatments.treatment3.description">促进血管再生，改善下肢血液循环，加速伤口愈合，预防截肢</p>
+                            <div class="flex justify-between items-center">
+                                <div class="text-blue-600 font-semibold">¥60,000 - ¥120,000</div>
+                                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="treatments.view-details">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newest Trials -->
+        <div class="p-4 mb-20">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold" data-i18n="treatments.trials-title">最新临床试验</h2>
+                <a href="#" class="text-blue-600 text-sm" data-i18n="treatments.view-all">查看全部</a>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm p-4">
+                <div class="mb-4 pb-4 border-b border-gray-200">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold" data-i18n="treatments.trial1.name">脊髓损伤干细胞修复临床试验</h3>
+                        <div class="bg-yellow-100 text-yellow-800 px-2 py-0.5 text-xs rounded-full" data-i18n="treatments.trial1.phase">II期</div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2" data-i18n="treatments.trial1.description">评估人类神经干细胞移植治疗慢性脊髓损伤的安全性和有效性</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <i class="fas fa-hospital mr-1"></i>
+                        <span class="mr-3" data-i18n="treatments.trial1.institution">北京大学第三医院</span>
+                        <i class="fas fa-users mr-1"></i>
+                        <span data-i18n="treatments.trial1.status">招募中</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold" data-i18n="treatments.trial2.name">ALS干细胞治疗研究</h3>
+                        <div class="bg-yellow-100 text-yellow-800 px-2 py-0.5 text-xs rounded-full" data-i18n="treatments.trial2.phase">I/II期</div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2" data-i18n="treatments.trial2.description">使用自体骨髓间充质干细胞治疗肌萎缩侧索硬化症的安全性研究</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <i class="fas fa-hospital mr-1"></i>
+                        <span class="mr-3" data-i18n="treatments.trial2.institution">上海交通大学附属瑞金医院</span>
+                        <i class="fas fa-users mr-1"></i>
+                        <span data-i18n="treatments.trial2.status">即将开始</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOS Bottom Bar -->
+    <div class="ios-bottom-bar">
+        <div class="text-center">
+            <i class="fas fa-home text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.home">首页</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-book-medical text-blue-600 text-xl"></i>
+            <p class="text-xs mt-1 text-blue-600 font-medium" data-i18n="nav.knowledge">知识库</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user-md text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.experts">专家</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.profile">我的</p>
+        </div>
+    </div>
+
+    <script>
+        // 这里会加载多语言支持的脚本
+    </script>
+</body>
+</html>
+

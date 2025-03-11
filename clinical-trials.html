@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="trials.title">临床试验 - 干细胞疗法信息网</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .ios-status-bar {
+            height: 44px;
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            color: white;
+            font-size: 14px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .ios-bottom-bar {
+            height: 83px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .trial-card {
+            transition: all 0.3s ease;
+        }
+        .trial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- iOS Status Bar -->
+    <div class="ios-status-bar">
+        <div>9:41</div>
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="flex-1 overflow-y-auto">
+        <!-- App Header -->
+        <div class="bg-white shadow-md p-4 flex items-center">
+            <button class="mr-4">
+                <i class="fas fa-arrow-left text-gray-600"></i>
+            </button>
+            <h1 class="text-lg font-semibold text-center flex-1" data-i18n="trials.header">临床试验</h1>
+            <button>
+                <i class="fas fa-filter text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="p-4 bg-white">
+            <div class="flex items-center bg-gray-100 rounded-lg px-3 py-2">
+                <i class="fas fa-search text-gray-400 mr-2"></i>
+                <input type="text" placeholder="搜索临床试验" class="bg-transparent border-none flex-1 focus:outline-none" data-i18n="trials.search-placeholder">
+            </div>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="bg-white p-2 flex overflow-x-auto space-x-2 border-t border-b border-gray-200">
+            <button class="px-3 py-1.5 bg-blue-600 text-white text-sm rounded-full whitespace-nowrap" data-i18n="trials.filter.all">全部</button>
+            <button class="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap" data-i18n="trials.filter.recruiting">招募中</button>
+            <button class="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap" data-i18n="trials.filter.completed">已完成</button>
+            <button class="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap flex items-center">
+                <span data-i18n="trials.filter.phase">试验阶段</span>
+                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <button class="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm rounded-full whitespace-nowrap flex items-center">
+                <span data-i18n="trials.filter.disease">疾病类型</span>
+                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+        </div>
+
+        <!-- Clinical Trials List -->
+        <div class="p-4 mb-20">
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Trial 1 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 trial-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-gray-800" data-i18n="trials.trial1.name">诱导多能干细胞(iPSCs)治疗帕金森病的安全性和有效性研究</h3>
+                        <div class="bg-green-100 text-green-800 px-2 py-0.5 text-xs rounded-full" data-i18n="trials.trial1.status">招募中</div>
+                    </div>
+                    <div class="flex items-center mb-2 text-sm">
+                        <div class="bg-blue-100 text-blue-800 px-2 py-0.5 text-xs rounded-full mr-2" data-i18n="trials.trial1.phase">I/II期</div>
+                        <div class="flex items-center text-gray-500 mr-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span data-i18n="trials.trial1.location">北京</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-calendar-alt mr-1"></i>
+                            <span data-i18n="trials.trial1.date">2022-2024</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3" data-i18n="trials.trial1.description">该研究旨在评估人类诱导多能干细胞(iPSCs)衍生的多巴胺能神经元移植到帕金森病患者大脑中的安全性和有效性。研究将招募30名早期至中期帕金森病患者，并进行为期24个月的随访。</p>
+                    <div class="mb-3">
+                        <h4 class="text-sm font-semibold mb-1" data-i18n="trials.eligibility">入选标准:</h4>
+                        <ul class="text-sm text-gray-600 pl-5 list-disc">
+                            <li data-i18n="trials.trial1.criteria1">临床确诊的特发性帕金森病，病程3-10年</li>
+                            <li data-i18n="trials.trial1.criteria2">年龄40-70岁</li>
+                            <li data-i18n="trials.trial1.criteria3">药物治疗反应不佳或存在严重波动现象</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/30x30" alt="Institution Logo" class="h-6 w-6 mr-2">
+                            <span class="text-sm text-gray-700" data-i18n="trials.trial1.institution">中国科学院神经科学研究所</span>
+                        </div>
+                        <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="trials.details">了解详情</button>
+                    </div>
+                </div>
+
+                <!-- Trial 2 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 trial-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-gray-800" data-i18n="trials.trial2.name">自体间充质干细胞治疗糖尿病足的随机对照研究</h3>
+                        <div class="bg-green-100 text-green-800 px-2 py-0.5 text-xs rounded-full" data-i18n="trials.trial2.status">招募中</div>
+                    </div>
+                    <div class="flex items-center mb-2 text-sm">
+                        <div class="bg-blue-100 text-blue-800 px-2 py-0.5 text-xs rounded-full mr-2" data-i18n="trials.trial2.phase">II期</div>
+                        <div class="flex items-center text-gray-500 mr-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span data-i18n="trials.trial2.location">上海</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-calendar-alt mr-1"></i>
+                            <span data-i18n="trials.trial2.date">2023-2025</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3" data-i18n="trials.trial2.description">该研究评估自体骨髓来源的间充质干细胞局部注射治疗糖尿病足溃疡的安全性和有效性。主要终点是治疗后12周内溃疡完全愈合率，次要终点包括疼痛缓解、生活质量和血管生成程度。</p>
+                    <div class="mb-3">
+                        <h4 class="text-sm font-semibold mb-1" data-i18n="trials.eligibility">入选标准:</h4>
+                        <ul class="text-sm text-gray-600 pl-5 list-disc">
+                            <li data-i18n="trials.trial2.criteria1">2型糖尿病患者，确诊至少5年</li>
+                            <li data-i18n="trials.trial2.criteria2">Wagner分级2-3级的糖尿病足溃疡</li>
+                            <li data-i18n="trials.trial2.criteria3">标准治疗至少8周效果不佳</li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/30x30" alt="Institution Logo" class="h-6 w-6 mr-2">
+                            <span class="text-sm text-gray-700" data-i18n="trials.trial2.institution">上海交通大学附属瑞金医院</span>
+                        </div>
+                        <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="trials.details">了解详情</button>
+                    </div>
+                </div>
+
+                <!-- Trial 3 -->
+                <div class="bg-white rounded-xl shadow-sm p-4 trial-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-gray-800" data-i18n="trials.trial3.name">心肌干细胞治疗扩张型心肌病的长期随访研究</h3>
+                        <div class="bg-gray-100 text-gray-800 px-2 py-0.5 text-xs rounded-full" data-i18n="trials.trial3.status">已完成</div>
+                    </div>
+                    <div class="flex items-center mb-2 text-sm">
+                        <div class="bg-blue-100 text-blue-800 px-2 py-0.5 text-xs rounded-full mr-2" data-i18n="trials.trial3.phase">III期</div>
+                        <div class="flex items-center text-gray-500 mr-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span data-i18n="trials.trial3.location">广州</span>
+                        </div>
+                        <div class="flex items-center text-gray-500">
+                            <i class="fas fa-calendar-alt mr-1"></i>
+                            <span data-i18n="trials.trial3.date">2018-2023</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3" data-i18n="trials.trial3.description">这项已完成的研究评估了心源性干细胞移植对重度扩张型心肌病患者的长期疗效。研究跟踪了120名患者5年，测量左心室射血分数改善、生活质量和心力衰竭相关住院率。</p>
+                    <div class="bg-yellow-50 p-3 rounded-lg mb-3">
+                        <h4 class="text-sm font-semibold text-yellow-800 mb-1" data-i18n="trials.results">初步结果:</h4>
+                        <p class="text-sm text-yellow-700" data-i18n="trials.trial3.results">干细胞治疗组的左心室射血分数平均提高8.3%，显著高于对照组(p<0.001)。5年生存率提高15%，但部分患者出现心律失常。详细结果将于2024年发表。</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/30x30" alt="Institution Logo" class="h-6 w-6 mr-2">
+                            <span class="text-sm text-gray-700" data-i18n="trials.trial3.institution">中山大学附属第一医院</span>
+                        </div>
+                        <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm" data-i18n="trials.details">了解详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOS Bottom Bar -->
+    <div class="ios-bottom-bar">
+        <div class="text-center">
+            <i class="fas fa-home text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.home">首页</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-book-medical text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.knowledge">知识库</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user-md text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.experts">专家</p>
+        </div>
+        <div class="text-center">
+            <i class="fas fa-user text-gray-400 text-xl"></i>
+            <p class="text-xs mt-1 text-gray-400" data-i18n="nav.profile">我的</p>
+        </div>
+    </div>
+
+    <script>
+        // 这里会加载多语言支持的脚本
+    </script>
+</body>
+</html>
+

@@ -1,132 +1,888 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="keywords" content="mobile, simulator, mobile design, mobile app">
-  <meta name="author" content="Your Name or Company">
-  <meta http-equiv="Content-Language" content="en">
-
-  <!-- Canonical Link -->
-  <link rel="canonical" href="https://www.yourwebsite.com/pc-simulator" />
-
-  <!-- Open Graph for Social Media -->
-  <meta property="og:title" content="PC Simulator">
-  <meta property="og:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta property="og:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta property="og:url" content="https://www.yourwebsite.com/pc-simulator">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PC Simulator">
-  <meta name="twitter:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="twitter:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta name="twitter:creator" content="@yourtwitterhandle">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://www.yourwebsite.com/favicon.ico" type="image/x-icon">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y) {
-      window.clarity=window.clarity||function(){(clarity.q=clarity.q||[]).push(arguments)};
-      clarity('set', 'anonymizeIP', true);
-      i=l.createElement('script');i.async=1;i.src=r;i.type='text/javascript';
-      t=l.getElementsByTagName('script')[0];t.parentNode.insertBefore(i,t);
-    })(document,window,'script','https://www.clarity.ms/tag/XXXXXX');
-  </script>
-
-  <title>PC Simulator</title>
-
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .mobile-container {
-      width: 360px;
-      height: 640px;
-      border: 16px solid black;
-      border-radius: 16px;
-      background-color: #fff;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    /* Adjustments for PC */
-    @media (min-width: 768px) {
-      .mobile-container {
-        width: 600px;
-        height: 1000px;
-      }
-
-      .content {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mobile-container {
-        width: 800px;
-        height: 1400px;
-      }
-
-      .content {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* Additional responsiveness for larger screens */
-    @media (min-width: 1200px) {
-      body {
-        justify-content: flex-start;
-      }
-
-      .mobile-container {
-        margin-top: 50px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site.title">干细胞疗法信息网</title>
+    <meta name="description" data-i18n="site.description" content="全面了解干细胞疗法，获取专业治疗资讯、专家团队信息、临床试验及供应商列表">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1579684288361-5c1a2955cde5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: #4F46E5;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #4338CA;
+            transform: translateY(-2px);
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
 </head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- 顶部导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=80&q=80" alt="Logo" class="h-10 w-10 mr-3">
+                <span class="text-2xl font-bold text-blue-700" data-i18n="site.name">干细胞疗法信息网</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-700 hover:text-blue-700 transition duration-300" data-i18n="nav.features">特色功能</a>
+                <a href="#experts" class="text-gray-700 hover:text-blue-700 transition duration-300" data-i18n="nav.experts">专家团队</a>
+                <a href="#treatments" class="text-gray-700 hover:text-blue-700 transition duration-300" data-i18n="nav.treatments">治疗领域</a>
+                <a href="#clinical-trials" class="text-gray-700 hover:text-blue-700 transition duration-300" data-i18n="nav.clinical-trials">临床试验</a>
+                <a href="#suppliers" class="text-gray-700 hover:text-blue-700 transition duration-300" data-i18n="nav.suppliers">供应商</a>
+                <a href="#faq" class="text-gray-700 hover:text-blue-700 transition duration-300" data-i18n="nav.faq">常见问题</a>
+            </div>
+            
+            <div class="flex items-center">
+                <select id="language-selector" class="mr-4 border rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="zh" selected>中文</option>
+                    <option value="en">English</option>
+                </select>
+                <a href="app-demo.html" class="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300" data-i18n="nav.demo">体验 App</a>
+                <button class="md:hidden text-gray-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<body>
-  <div class="mobile-container">
-    <div class="content">
-      <p>Mobile Simulator Screen</p>
-      <p>PC Version: Adjusted for larger screens.</p>
-    </div>
-  </div>
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" data-i18n="hero.title">告别医疗信息迷茫，迎接智慧健康决策 - 干细胞疗法信息网为您导航</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto" data-i18n="hero.subtitle">专业、全面、易懂的干细胞疗法信息平台，助您深入了解潜在治疗方案，做出明智的医疗选择</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#waiting-list" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg" data-i18n="hero.cta.primary">加入等待名单，抢先体验</a>
+                <a href="#how-it-works" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-700 transition duration-300" data-i18n="hero.cta.secondary">了解更多</a>
+            </div>
+            <div class="mt-10 animate-bounce">
+                <a href="#problem-solution" class="text-white">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section id="problem-solution" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800" data-i18n="problem.title">正在为医疗信息碎片化和不专业而困扰？你不是一个人！</h2>
+                    <p class="text-lg text-gray-600 mb-8" data-i18n="problem.description">面对铺天盖地的干细胞疗法信息，真假难辨，难以做出正确决策。不专业的信息不仅浪费您宝贵的时间，更可能导致错误的医疗选择，影响健康和经济成本。</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="bg-red-100 rounded-full p-2">
+                                    <i class="fas fa-times text-red-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-medium" data-i18n="problem.point1">信息碎片化，真假难辨</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="bg-red-100 rounded-full p-2">
+                                    <i class="fas fa-times text-red-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-medium" data-i18n="problem.point2">缺乏专业评估，难以判断适用性</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="bg-red-100 rounded-full p-2">
+                                    <i class="fas fa-times text-red-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-medium" data-i18n="problem.point3">无法获取真实案例和专家推荐</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="医疗困惑" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+
+            <div class="mt-20 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 order-2 md:order-1 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="信息解决方案" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 mb-10 md:mb-0 order-1 md:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800" data-i18n="solution.title">干细胞疗法信息网 - 您的专业医疗决策助手</h2>
+                    <p class="text-lg text-gray-600 mb-8" data-i18n="solution.description">我们为您量身打造全面医疗信息平台，整合权威干细胞疗法资讯，使您能够轻松了解适合的治疗方案，与专业医生直接沟通，查看真实案例，做出明智决策。</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="bg-green-100 rounded-full p-2">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-medium" data-i18n="solution.point1">权威专家评审内容，确保信息准确可靠</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="bg-green-100 rounded-full p-2">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-medium" data-i18n="solution.point2">获取真实治疗案例和患者评价</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="bg-green-100 rounded-full p-2">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-gray-700 font-medium" data-i18n="solution.point3">直接连接权威专家和可靠医疗机构</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <a href="#features" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg" data-i18n="solution.cta">了解核心功能</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="features.title">核心功能 - 您的干细胞疗法导航专家</h2>
+                <p class="text-lg text-gray-600" data-i18n="features.subtitle">专为需要干细胞治疗信息的患者和家属打造的全方位解决方案</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transition duration-300 feature-card">
+                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-blue-100 mx-auto mb-6">
+                        <i class="fas fa-brain text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-800" data-i18n="features.feature1.title">场景一：干细胞科普 - 轻松理解复杂医学概念</h3>
+                    <div class="h-40 mb-6 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="干细胞科普" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-600 mb-6" data-i18n="features.feature1.description">通过生动的3D动画和图解，即使没有医学背景也能轻松理解干细胞治疗原理，帮助您掌握基础知识，为医疗决策打好基础。</p>
+                    <div class="text-center">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            <span data-i18n="features.feature1.cta">了解更多</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transition duration-300 feature-card">
+                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-blue-100 mx-auto mb-6">
+                        <i class="fas fa-clipboard-list text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-800" data-i18n="features.feature2.title">场景二：治疗方案比较 - 找到最适合您的选择</h3>
+                    <div class="h-40 mb-6 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1631563019676-dade0fb02caa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="治疗方案比较" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-600 mb-6" data-i18n="features.feature2.description">针对您的具体疾病和情况，提供多种干细胞治疗方案详细对比，包括效果、风险、费用、恢复时间等因素，帮助您做出明智选择。</p>
+                    <div class="text-center">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            <span data-i18n="features.feature2.cta">了解更多</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 transition duration-300 feature-card">
+                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-blue-100 mx-auto mb-6">
+                        <i class="fas fa-user-md text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center text-gray-800" data-i18n="features.feature3.title">场景三：专家直连 - 与权威医生一对一交流</h3>
+                    <div class="h-40 mb-6 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1612277394421-48cc12e0e722?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="专家直连" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-600 mb-6" data-i18n="features.feature3.description">直接连接国内外干细胞领域权威专家，获取个性化治疗建议和解答。无需长途奔波，在线完成初步咨询，节省时间和精力。</p>
+                    <div class="text-center">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            <span data-i18n="features.feature3.cta">了解更多</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="app-demo.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg inline-flex items-center" data-i18n="features.main-cta">
+                    <span>体验完整功能演示</span>
+                    <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="py-20 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="value.title">干细胞疗法信息网 - 患者医疗决策的终极助手</h2>
+                <p class="text-lg text-gray-600" data-i18n="value.subtitle">我们致力于帮助患者和家属在干细胞治疗领域获取准确信息，提升决策信心，节省90%咨询时间，避免不必要的治疗风险</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md p-8 text-center">
+                    <div class="text-5xl font-bold text-blue-600 mb-4">98%</div>
+                    <p class="text-gray-700" data-i18n="value.stat1">用户认为我们的信息比其他渠道更准确可靠</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-8 text-center">
+                    <div class="text-5xl font-bold text-blue-600 mb-4">90%</div>
+                    <p class="text-gray-700" data-i18n="value.stat2">用户节省的信息搜集和筛选时间</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-8 text-center">
+                    <div class="text-5xl font-bold text-blue-600 mb-4">5000+</div>
+                    <p class="text-gray-700" data-i18n="value.stat3">已帮助患者做出明智的治疗决策</p>
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-8 md:mb-0">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800" data-i18n="value.comparison.title">为什么选择我们？</h3>
+                            <div class="space-y-4">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700" data-i18n="value.comparison.point1">所有内容经过专业医学专家审核，确保准确性</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700" data-i18n="value.comparison.point2">提供真实案例和负面报告，全面客观</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700" data-i18n="value.comparison.point3">直接连接国内外权威专家和机构</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700" data-i18n="value.comparison.point4">完全中立，不受任何供应商或医院赞助</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-10">
+                            <img src="https://images.unsplash.com/photo-1576086476234-a1f1cd4b1a4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="比较优势" class="rounded-lg shadow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="how.title">简单易用，三步开启您的医疗之旅</h2>
+                <p class="text-lg text-gray-600" data-i18n="how.subtitle">我们的平台设计简洁直观，让您能够轻松获取所需的干细胞疗法信息</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-12 md:space-y-0">
+                <div class="md:w-1/3 text-center px-6">
+                    <div class="relative">
+                        <div class="h-20 w-20 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto">1</div>
+                        <div class="hidden md:block absolute top-10 -right-full w-full border-t-2 border-dashed border-blue-300"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mt-6 mb-4" data-i18n="how.step1.title">注册并创建健康档案</h3>
+                    <p class="text-gray-600" data-i18n="how.step1.description">提供您的基本健康信息和感兴趣的疾病领域，我们将为您定制个性化内容推荐</p>
+                </div>
+                
+                <div class="md:w-1/3 text-center px-6">
+                    <div class="relative">
+                        <div class="h-20 w-20 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto">2</div>
+                        <div class="hidden md:block absolute top-10 -right-full w-full border-t-2 border-dashed border-blue-300"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mt-6 mb-4" data-i18n="how.step2.title">探索干细胞治疗信息</h3>
+                    <p class="text-gray-600" data-i18n="how.step2.description">浏览经专家审核的治疗方案、案例研究和临床试验，全面了解适合您的选择</p>
+                </div>
+                
+                <div class="md:w-1/3 text-center px-6">
+                    <div class="relative">
+                        <div class="h-20 w-20 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto">3</div>
+                    </div>
+                    <h3 class="text-xl font-bold mt-6 mb-4" data-i18n="how.step3.title">连接专家和治疗机构</h3>
+                    <p class="text-gray-600" data-i18n="how.step3.description">直接与所选专家预约咨询，或联系提供干细胞治疗的医疗机构，开始您的治疗之旅</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="#waiting-list" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg" data-i18n="how.cta">立即开始，获取早期访问权限</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof/Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="testimonials.title">超过5000位用户的共同选择</h2>
+                <p class="text-lg text-gray-600" data-i18n="testimonials.subtitle">听听他们的故事，了解干细胞疗法信息网如何改变他们的医疗决策体验</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl shadow-md p-8 testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="h-16 w-16 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-800" data-i18n="testimonials.testimonial1.name">张女士，帕金森患者家属</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic" data-i18n="testimonials.testimonial1.content">"父亲患帕金森病多年，一直在寻找新的治疗方法。通过干细胞疗法信息网，我们不仅了解了最新的干细胞治疗进展，还找到了合适的临床试验。平台提供的专家咨询让我们对治疗有了明确的预期，避免了盲目尝试带来的风险和失望。"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl shadow-md p-8 testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="h-16 w-16 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-800" data-i18n="testimonials.testimonial2.name">王先生，糖尿病并发症患者</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic" data-i18n="testimonials.testimonial2.content">"作为一名糖尿病足患者，我几乎失去了行走的希望。通过这个平台，我了解到干细胞治疗对血管再生的潜力，并成功找到了一家专业医院。治疗后，我的病情有了明显改善。最重要的是，平台提供的案例分析和风险评估让我做好了充分的心理准备。"</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl shadow-md p-8 testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="用户头像" class="h-16 w-16 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold text-gray-800" data-i18n="testimonials.testimonial3.name">李医生，神经科主任</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic" data-i18n="testimonials.testimonial3.content">"作为神经科医生，我经常向患者推荐干细胞疗法信息网。这个平台提供的信息既专业又易懂，帮助患者建立了合理的期望值。特别是其中的负面案例分析和风险提示，对于防止患者盲目追求新疗法非常有价值。这是一个真正站在患者角度的信息平台。"</p>
+                </div>
+            </div>
+
+            <!-- Partner Logos -->
+            <div class="mt-20">
+                <h3 class="text-xl font-bold text-center mb-10 text-gray-700" data-i18n="testimonials.partners">受到行业权威机构认可</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                    <img src="https://images.pexels.com/photos/3938022/pexels-photo-3938022.jpeg?auto=compress&cs=tinysrgb&w=200" alt="医学协会" class="h-12 object-contain mx-auto grayscale hover:grayscale-0 transition duration-300">
+                    <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=200" alt="三甲医院" class="h-12 object-contain mx-auto grayscale hover:grayscale-0 transition duration-300">
+                    <img src="https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg?auto=compress&cs=tinysrgb&w=200" alt="研究机构" class="h-12 object-contain mx-auto grayscale hover:grayscale-0 transition duration-300">
+                    <img src="https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=200" alt="健康组织" class="h-12 object-contain mx-auto grayscale hover:grayscale-0 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots Section -->
+    <section id="app-screenshots" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="screenshots.title">抢先预览 - 干细胞疗法信息网核心功能一览</h2>
+                <p class="text-lg text-gray-600" data-i18n="screenshots.subtitle">滑动浏览，发现干细胞疗法信息网如何帮助您获取专业医疗信息，做出明智决策</p>
+            </div>
+
+            <div class="flex overflow-x-auto space-x-6 pb-8">
+                <div class="flex-shrink-0 w-80 bg-gray-100 rounded-3xl overflow-hidden shadow-xl">
+                    <iframe src="home.html" class="w-full h-[600px] border-0"></iframe>
+                </div>
+                <div class="flex-shrink-0 w-80 bg-gray-100 rounded-3xl overflow-hidden shadow-xl">
+                    <iframe src="experts.html" class="w-full h-[600px] border-0"></iframe>
+                </div>
+                <div class="flex-shrink-0 w-80 bg-gray-100 rounded-3xl overflow-hidden shadow-xl">
+                    <iframe src="treatments.html" class="w-full h-[600px] border-0"></iframe>
+                </div>
+                <div class="flex-shrink-0 w-80 bg-gray-100 rounded-3xl overflow-hidden shadow-xl">
+                    <iframe src="suppliers.html" class="w-full h-[600px] border-0"></iframe>
+                </div>
+                <div class="flex-shrink-0 w-80 bg-gray-100 rounded-3xl overflow-hidden shadow-xl">
+                    <iframe src="clinical-trials.html" class="w-full h-[600px] border-0"></iframe>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="app-demo.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg inline-flex items-center" data-i18n="screenshots.cta">
+                    <span>体验完整App Demo - 干细胞疗法信息网功能全貌抢先看！</span>
+                    <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waiting List Section -->
+    <section id="waiting-list" class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-i18n="waitinglist.title">抢先体验内测资格，赢在起跑线！</h2>
+                    <p class="text-xl mb-8" data-i18n="waitinglist.subtitle">加入干细胞疗法信息网独家内测等待列表，第一时间获取内测邀请码、限量福利和专属优惠！名额有限，立即加入！</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-white"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p data-i18n="waitinglist.benefit1">优先访问所有专业干细胞治疗资源</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-white"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p data-i18n="waitinglist.benefit2">免费获得专家一对一咨询名额</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-white"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p data-i18n="waitinglist.benefit3">终身VIP会员50%折扣特权</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800" data-i18n="waitinglist.form-title">立即加入等待名单</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2" data-i18n="waitinglist.form.name">姓名</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="请输入您的姓名">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2" data-i18n="waitinglist.form.email">电子邮箱</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="请输入您的电子邮箱">
+                            </div>
+                            <div>
+                                <label for="interest" class="block text-gray-700 font-medium mb-2" data-i18n="waitinglist.form.interest">您感兴趣的疾病领域</label>
+                                <select id="interest" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="" data-i18n="waitinglist.form.interest-placeholder">请选择</option>
+                                    <option value="neurological" data-i18n="waitinglist.form.interest-option1">神经系统疾病</option>
+                                    <option value="cardiovascular" data-i18n="waitinglist.form.interest-option2">心血管疾病</option>
+                                    <option value="diabetes" data-i18n="waitinglist.form.interest-option3">糖尿病及并发症</option>
+                                    <option value="autoimmune" data-i18n="waitinglist.form.interest-option4">自身免疫疾病</option>
+                                    <option value="others" data-i18n="waitinglist.form.interest-option5">其他</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow" data-i18n="waitinglist.form.submit">立即加入等待名单，抢占先机！</button>
+                        </form>
+                        <p class="text-gray-500 text-sm mt-4 text-center" data-i18n="waitinglist.form.privacy">我们重视您的隐私，您的信息将被严格保密</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Video Stream Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="youtube.title">用户真实案例 - 看干细胞疗法信息网如何助力患者实现健康新希望</h2>
+                <p class="text-lg text-gray-600" data-i18n="youtube.subtitle">精选视频分享患者成功故事和专家解析，帮助您更直观了解干细胞疗法应用</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="rounded-xl overflow-hidden shadow-lg">
+                    <!-- YouTube视频占位 - 实际开发时替换 -->
+                    <iframe 
+                        width="100%" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full"
+                    ></iframe>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800" data-i18n="youtube.video1.title">帕金森病患者的干细胞治疗之旅</h3>
+                        <p class="text-gray-600" data-i18n="youtube.video1.description">跟随张先生的治疗过程，了解干细胞疗法如何改善他的运动症状，重获生活质量</p>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-lg">
+                    <!-- YouTube视频占位 - 实际开发时替换 -->
+                    <iframe 
+                        width="100%" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full"
+                    ></iframe>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800" data-i18n="youtube.video2.title">专家解析：干细胞治疗的现状与未来</h3>
+                        <p class="text-gray-600" data-i18n="youtube.video2.description">顶尖干细胞研究专家详解当前技术进展、临床应用及未来发展方向</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center" data-i18n="youtube.more">
+                    <span>查看更多视频</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Twitter Feed Stream Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="twitter.title">用户口碑 - Twitter实时热议干细胞疗法的突破与进展</h2>
+                <p class="text-lg text-gray-600" data-i18n="twitter.subtitle">关注最新干细胞研究动态，了解全球患者的真实反馈与体验分享</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Twitter Feed占位 - 实际开发时替换 -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Twitter用户" class="h-12 w-12 rounded-full">
+                        <div class="ml-3">
+                            <h4 class="font-bold">John Doe</h4>
+                            <div class="text-gray-500">@johndoe</div>
+                        </div>
+                        <div class="ml-auto text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">Just finished my stem cell therapy for knee cartilage repair. The information from @StemCellInfoNet was incredibly helpful in finding the right treatment option! #StemCellTherapy #Recovery</p>
+                    <div class="text-gray-500 text-sm">3 hours ago</div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b74bf7751574?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Twitter用户" class="h-12 w-12 rounded-full">
+                        <div class="ml-3">
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <div class="text-gray-500">@sarah_j</div>
+                        </div>
+                        <div class="ml-auto text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">Breaking: New clinical trial shows promising results for stem cell treatment in heart failure patients. Reduced mortality by 40%! See full details on @StemCellInfoNet #HeartHealth #StemCellResearch</p>
+                    <div class="text-gray-500 text-sm">Yesterday</div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1569913486515-b74bf7751574?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Twitter用户" class="h-12 w-12 rounded-full">
+                        <div class="ml-3">
+                            <h4 class="font-bold">Dr. Robert Chen</h4>
+                            <div class="text-gray-500">@dr_chen</div>
+                        </div>
+                        <div class="ml-auto text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">As a neurologist, I recommend @StemCellInfoNet to all my patients interested in stem cell therapies. It provides balanced information, including potential risks. This kind of resource is invaluable! #PatientEducation</p>
+                    <div class="text-gray-500 text-sm">2 days ago</div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center" data-i18n="twitter.more">
+                    <span>查看更多Twitter讨论</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" data-i18n="faq.title">常见问题解答</h2>
+                <p class="text-lg text-gray-600" data-i18n="faq.subtitle">我们整理了用户最关心的问题，帮助您更好地了解干细胞疗法和我们的平台</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800" data-i18n="faq.q1">干细胞疗法信息网如何帮我找到适合的治疗方案？</h3>
+                    <p class="text-gray-600" data-i18n="faq.a1">我们会根据您的具体疾病、年龄、健康状况等因素，提供个性化的干细胞治疗方案推荐。我们的平台整合了各种治疗方案的详细信息，包括适应症、效果、风险、费用等，并提供真实案例供您参考，帮助您找到最适合的选择。</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800" data-i18n="faq.q2">平台上的信息来源是否可靠？</h3>
+                    <p class="text-gray-600" data-i18n="faq.a2">所有内容均经过严格审核，确保准确性和可靠性。我们的信息来源包括：权威医学期刊发表的研究论文、医学专家撰写和审核的内容、国家卫生部门公开的治疗指南、临床试验数据库等。我们承诺提供平衡的视角，包括治疗的优势和局限性。</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800" data-i18n="faq.q3">干细胞疗法的风险有哪些？</h3>
+                    <p class="text-gray-600" data-i18n="faq.a3">干细胞疗法可能存在的风险包括：免疫排斥反应、细胞过度增殖、治疗位置感染、疗效不确定性等。不同的干细胞类型和治疗方法风险各不相同。我们平台提供详细的风险分析，并收集了负面案例报道，帮助您全面了解治疗风险，做出明智决策。</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800" data-i18n="faq.q4">如何判断哪些医疗机构提供的干细胞治疗是可靠的？</h3>
+                    <p class="text-gray-600" data-i18n="faq.a4">我们提供的医疗机构评估标准包括：是否拥有正规医疗牌照、治疗是否经过官方批准或在正规临床试验框架下进行、医疗团队的专业背景、患者评价、收费透明度、是否有详细的治疗方案和风险告知等。我们会对平台上的机构进行严格筛选，并标注与机构相关的法律纠纷情况。</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800" data-i18n="faq.q5">平台收费标准是怎样的？</h3>
+                    <p class="text-gray-600" data-i18n="faq.a5">基础信息查询和学习功能完全免费。高级功能如专家一对一咨询、个性化治疗方案分析、治疗后随访服务等需要付费。我们提供不同等级的会员服务，满足不同需求。详细价格请查看"会员服务"页面。我们承诺定价透明，绝不收取任何隐藏费用。</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800" data-i18n="faq.q6">平台是否接受医疗机构或供应商的赞助？</h3>
+                    <p class="text-gray-600" data-i18n="faq.a6">为保持内容的客观性和公正性，我们不接受任何干细胞治疗机构或供应商的直接赞助。我们的收入来源主要是用户订阅费和中立的广告。所有合作伙伴都会被明确标注，确保信息透明。我们承诺始终将用户利益放在首位。</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center" data-i18n="faq.more">
+                    <span>查看更多常见问题</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-6" data-i18n="footer.about-title">关于我们</h3>
+                    <p class="text-gray-400 mb-6" data-i18n="footer.about-text">干细胞疗法信息网致力于提供专业、全面、易懂的干细胞疗法信息，帮助用户做出明智的医疗决策，连接优质医疗资源。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h3 class="text-xl font-bold mb-6" data-i18n="footer.links-title">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.link1">干细胞科普</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.link2">治疗领域</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.link3">专家团队</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.link4">临床试验</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.link5">负面案例</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.link6">法律声明</a></li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4 mb-10 md:mb-0">
+                    <h3 class="text-xl font-bold mb-6" data-i18n="footer.contact-title">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400" data-i18n="footer.address">北京市海淀区中关村科技园</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7aea9a1a887b4b3a2aaa4a2ababaea9a1a8e9a9a2b3">[email&#160;protected]</a></span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+86 10 8888 8888</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-1/4">
+                    <h3 class="text-xl font-bold mb-6" data-i18n="footer.newsletter-title">订阅最新资讯</h3>
+                    <p class="text-gray-400 mb-4" data-i18n="footer.newsletter-text">定期获取干细胞治疗领域最新研究进展和政策动态</p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱地址" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="border-gray-800 my-10">
+
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-center md:text-left" data-i18n="footer.copyright"> 2023 干细胞疗法信息网. 保留所有权利.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300" data-i18n="footer.privacy">隐私政策</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300" data-i18n="footer.terms">使用条款</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300" data-i18n="footer.disclaimer">免责声明</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // 多语言支持
+        let currentLanguage = 'zh';
+        const languageSelector = document.getElementById('language-selector');
+
+        // 加载语言文件
+        async function loadLanguage(lang) {
+            try {
+                const response = await fetch(`locales/${lang}.json`);
+                if (!response.ok) {
+                    throw new Error(`Failed to load language file: ${lang}.json`);
+                }
+                const translations = await response.json();
+                applyTranslations(translations);
+                currentLanguage = lang;
+                languageSelector.value = lang;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // 应用翻译
+        function applyTranslations(translations) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = getNestedTranslation(translations, key);
+                
+                if (translation) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        if (el.getAttribute('placeholder')) {
+                            el.setAttribute('placeholder', translation);
+                        } else {
+                            el.value = translation;
+                        }
+                    } else if (el.getAttribute('data-i18n-attr')) {
+                        const attr = el.getAttribute('data-i18n-attr');
+                        el.setAttribute(attr, translation);
+                    } else {
+                        el.textContent = translation;
+                    }
+                }
+            });
+        }
+
+        // 获取嵌套对象的值
+        function getNestedTranslation(obj, path) {
+            const keys = path.split('.');
+            return keys.reduce((acc, key) => {
+                return acc && acc[key] !== undefined ? acc[key] : undefined;
+            }, obj);
+        }
+
+        // 语言切换处理
+        languageSelector.addEventListener('change', (e) => {
+            loadLanguage(e.target.value);
+        });
+
+        // 初始加载默认语言
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLanguage(currentLanguage);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
